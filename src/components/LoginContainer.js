@@ -1,11 +1,37 @@
 import React from 'react';
-// import LoginForm from './LoginForm';
+import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import '../css/LoginContainer.css';
 import logo from '../images/twitter.svg';
 
 class LoginContainer extends React.Component {
+
+  constructor(){
+    super();
+    this.handleFormChange = this.handleFormChange.bind(this);
+
+    this.state = {
+      whichForm: 'signup'
+    }
+  }
+
+  handleFormChange(e){
+    // e.target.id === 'login' ?     barStyle = {'right': 0} : barStyle = {'left': 0}
+    this.setState({whichForm: e.target.id})
+
+  }
+
+  componentDidUpdate(){
+    // console.log(this.state);
+  }
+
+
   render(){
+    let barStyle = {};
+    // this.state.whichForm === 'signup' ? barStyle = {'right': 0} : barStyle = {'left': 0}
+    this.state.whichForm === 'signup' ? barStyle = {'marginLeft': '50%'} : barStyle = {'marginLeft': 0}
+
+
     return(
       <div className="form-container">
         <div className="welcome-section">
@@ -16,19 +42,26 @@ class LoginContainer extends React.Component {
         <div className="login-form-section">
 
           <div className="radios">
-            <label htmlFor="login">
-              <input name="form" id="form" type="radio"/> Log in
+            <label htmlFor="login"> Log in
+              <input name="form" id="login" type="radio"
+                onChange={this.handleFormChange}
+                checked={this.state.whichForm === 'login'}
+              />
+
             </label>
-            <label htmlFor="signup">
-              <input name="form" id="signup" type="radio"/> Sign up
+            <label htmlFor="signup"> Sign up
+              <input name="form" id="signup" type="radio"
+                onChange={this.handleFormChange}
+                checked={this.state.whichForm === 'signup'}
+              />
             </label>
             <div className="sliding-bar">
-              <div className="bar"></div>
+              <div className="bar" style={barStyle}></div>
             </div>
           </div>
 
           <div className="forms">
-            <SignupForm />
+            {this.state.whichForm === 'signup' ? <SignupForm /> : <LoginForm /> }
           </div>
 
 

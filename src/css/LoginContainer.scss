@@ -3,6 +3,7 @@
   width: 900px;
   background: #f1f1f1;
   display: flex;
+  font-weight: 300;
 
   .welcome-section {
     width: 40%;
@@ -30,6 +31,7 @@
     width: 60%;
 
     .radios {
+
       label {
         cursor: pointer;
         display: inline-block;
@@ -51,14 +53,15 @@
       .sliding-bar {
         width: 100%;
         height: 5px;
-        // background: green;
         background: #fff;
         border-bottom: 2px solid #ccc;
+        transition: 2s;
 
         .bar {
           width: 50%;
           height: 100%;
           background: #00aced;
+          transition: 0.35s;
         }
       }
     }
