@@ -1,0 +1,65 @@
+.form-container {
+  margin: auto;
+  width: 900px;
+  background: red;
+  display: flex;
+
+  .welcome-section {
+    width: 40%;
+    background: #333;
+    padding: 40px;
+    text-align: center;
+    color: #eee;
+
+    img {
+      height: 75px;
+    }
+
+    p.main {
+      font-size: 26px;
+      padding: 40px 0;
+    }
+
+    p.sub {
+      line-height: 180%;
+      font-size: 14px;
+    }
+  }
+
+  .login-form-section {
+    width: 60%;
+    background: pink;
+
+    label {
+      cursor: pointer;
+      display: inline-block;
+      width: 50%;
+      height: 60px;
+      background: #fff;
+      color: #333;
+      text-transform: uppercase;
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      input[type="radio"] {
+        display: none;
+      }
+    }
+
+    .sliding-bar {
+      width: 100%;
+      height: 5px;
+      // background: green;
+      background: #fff;
+      border-bottom: 2px solid #ccc;
+
+      .bar {
+        width: 50%;
+        height: 100%;
+        background: #00aced;
+      }
+    }
+  }
+}
