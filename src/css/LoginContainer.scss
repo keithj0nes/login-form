@@ -1,7 +1,7 @@
 .form-container {
   margin: auto;
   width: 900px;
-  background: red;
+  background: #f1f1f1;
   display: flex;
 
   .welcome-section {
@@ -28,38 +28,43 @@
 
   .login-form-section {
     width: 60%;
-    background: pink;
 
-    label {
-      cursor: pointer;
-      display: inline-block;
-      width: 50%;
-      height: 60px;
-      background: #fff;
-      color: #333;
-      text-transform: uppercase;
-      font-size: 18px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .radios {
+      label {
+        cursor: pointer;
+        display: inline-block;
+        width: 50%;
+        height: 60px;
+        background: #fff;
+        color: #333;
+        text-transform: uppercase;
+        font-size: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
 
-      input[type="radio"] {
-        display: none;
+        input[type="radio"] {
+          display: none;
+        }
+      }
+
+      .sliding-bar {
+        width: 100%;
+        height: 5px;
+        // background: green;
+        background: #fff;
+        border-bottom: 2px solid #ccc;
+
+        .bar {
+          width: 50%;
+          height: 100%;
+          background: #00aced;
+        }
       }
     }
 
-    .sliding-bar {
-      width: 100%;
-      height: 5px;
-      // background: green;
-      background: #fff;
-      border-bottom: 2px solid #ccc;
-
-      .bar {
-        width: 50%;
-        height: 100%;
-        background: #00aced;
-      }
+    .forms {
     }
   }
+
 }

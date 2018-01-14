@@ -1,7 +1,7 @@
 .form-container {
   margin: auto;
   width: 900px;
-  background: red;
+  background: #f1f1f1;
   display: flex; }
   .form-container .welcome-section {
     width: 40%;
@@ -18,9 +18,8 @@
       line-height: 180%;
       font-size: 14px; }
   .form-container .login-form-section {
-    width: 60%;
-    background: pink; }
-    .form-container .login-form-section label {
+    width: 60%; }
+    .form-container .login-form-section .radios label {
       cursor: pointer;
       display: inline-block;
       width: 50%;
@@ -32,14 +31,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: center; }
-      .form-container .login-form-section label input[type="radio"] {
+      .form-container .login-form-section .radios label input[type="radio"] {
         display: none; }
-    .form-container .login-form-section .sliding-bar {
+    .form-container .login-form-section .radios .sliding-bar {
       width: 100%;
       height: 5px;
       background: #fff;
       border-bottom: 2px solid #ccc; }
-      .form-container .login-form-section .sliding-bar .bar {
+      .form-container .login-form-section .radios .sliding-bar .bar {
         width: 50%;
         height: 100%;
         background: #00aced; }

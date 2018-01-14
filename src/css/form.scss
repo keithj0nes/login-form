@@ -1,0 +1,30 @@
+form {
+  padding: 40px;
+
+  input, button {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 16px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+  }
+
+  input::placeholder {
+    color: #ccc;
+  }
+
+  button {
+    background: #00aced;
+    color: #f1f1f1;
+  }
+
+  p.terms {
+    font-size: 12px;
+    color: #ccc;
+    text-align: center;
+
+    a {
+      color: #00aced;
+    }
+  }
+}
