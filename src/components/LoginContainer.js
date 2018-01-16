@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import '../css/LoginContainer.css';
 import logo from '../images/twitter.svg';
@@ -9,26 +8,60 @@ class LoginContainer extends React.Component {
   constructor(){
     super();
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
-      whichForm: 'signup'
+      whichForm: 'signup',
+      users: [
+        {
+          name: 'Keith Jones',
+          email: 'keith@keith.com',
+          password: '123'
+        },
+        {
+          name: 'John Smith',
+          email: 'john@john.com',
+          password: '123'
+        }
+      ]
     }
   }
 
   handleFormChange(e){
-    // e.target.id === 'login' ?     barStyle = {'right': 0} : barStyle = {'left': 0}
     this.setState({whichForm: e.target.id})
-
   }
 
+  handleSubmit(user, type){
+
+    if(type === 'signup'){
+      const users = [...this.state.users];
+      let userExists = false;
+      for(var i = 0; i < users.length; i++){
+        // console.log(users[i], "users[i]");
+        if(users[i].email === user.email){
+          console.log('user already exists!');
+          userExists = true;
+          break;
+        }
+      }
+
+      if(!userExists){
+        users.push(user)
+        this.setState({users})
+      }
+    } else if(type === 'login'){
+
+    }
+  }
+
+
   componentDidUpdate(){
-    // console.log(this.state);
+    console.log(this.state.users, 'componentDidUpdate');
   }
 
 
   render(){
     let barStyle = {};
-    // this.state.whichForm === 'signup' ? barStyle = {'right': 0} : barStyle = {'left': 0}
     this.state.whichForm === 'signup' ? barStyle = {'marginLeft': '50%'} : barStyle = {'marginLeft': 0}
 
 
@@ -61,7 +94,7 @@ class LoginContainer extends React.Component {
           </div>
 
           <div className="forms">
-            {this.state.whichForm === 'signup' ? <SignupForm /> : <LoginForm /> }
+            {this.state.whichForm === 'signup' ? <SignupForm handleSubmit={this.handleSubmit} signupForm={true} /> : <SignupForm handleSubmit={this.handleSubmit} loginForm={true}/> }
           </div>
 
 

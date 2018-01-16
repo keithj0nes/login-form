@@ -55,13 +55,17 @@
         height: 5px;
         background: #fff;
         border-bottom: 2px solid #ccc;
-        transition: 2s;
 
         .bar {
           width: 50%;
           height: 100%;
           background: #00aced;
+          -webkit-transition: 0.35s;
+          -moz-transition: 0.35s;
+          -o-transition: 0.35s;
           transition: 0.35s;
+
+          //SLIDING BEING SET IN LOGINCONTAINER.JS AS BARSTYLE;
         }
       }
     }
