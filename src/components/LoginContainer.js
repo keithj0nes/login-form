@@ -1,5 +1,6 @@
 import React from 'react';
 import SignupForm from './SignupForm';
+import Modal from './Modal';
 import '../css/LoginContainer.css';
 import logo from '../images/twitter.svg';
 
@@ -66,38 +67,43 @@ class LoginContainer extends React.Component {
 
 
     return(
-      <div className="form-container">
-        <div className="welcome-section">
-          <img src={logo} alt=""/>
-          <p className="main">Welcome to Twitter.</p>
-          <p className="sub">Connect with your friends - and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
-        </div>
-        <div className="login-form-section">
+      <div>
 
-          <div className="radios">
-            <label htmlFor="login"> Log in
-              <input name="form" id="login" type="radio"
-                onChange={this.handleFormChange}
-                checked={this.state.whichForm === 'login'}
-              />
 
-            </label>
-            <label htmlFor="signup"> Sign up
-              <input name="form" id="signup" type="radio"
-                onChange={this.handleFormChange}
-                checked={this.state.whichForm === 'signup'}
-              />
-            </label>
-            <div className="sliding-bar">
-              <div className="bar" style={barStyle}></div>
+        <Modal />
+        <div className="form-container">
+          <div className="welcome-section">
+            <img src={logo} alt=""/>
+            <p className="main">Welcome to Twitter.</p>
+            <p className="sub">Connect with your friends - and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+          </div>
+          <div className="login-form-section">
+
+            <div className="radios">
+              <label htmlFor="login"> Log in
+                <input name="form" id="login" type="radio"
+                  onChange={this.handleFormChange}
+                  checked={this.state.whichForm === 'login'}
+                />
+
+              </label>
+              <label htmlFor="signup"> Sign up
+                <input name="form" id="signup" type="radio"
+                  onChange={this.handleFormChange}
+                  checked={this.state.whichForm === 'signup'}
+                />
+              </label>
+              <div className="sliding-bar">
+                <div className="bar" style={barStyle}></div>
+              </div>
             </div>
+
+            <div className="forms">
+              {this.state.whichForm === 'signup' ? <SignupForm handleSubmit={this.handleSubmit} signupForm={true} /> : <SignupForm handleSubmit={this.handleSubmit} loginForm={true}/> }
+            </div>
+
+
           </div>
-
-          <div className="forms">
-            {this.state.whichForm === 'signup' ? <SignupForm handleSubmit={this.handleSubmit} signupForm={true} /> : <SignupForm handleSubmit={this.handleSubmit} loginForm={true}/> }
-          </div>
-
-
         </div>
       </div>
     )
