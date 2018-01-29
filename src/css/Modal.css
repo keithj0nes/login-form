@@ -1,37 +1,46 @@
-.modal {
-  width: 300px;
-  height: 350px;
-  background: red; }
-  .modal .type {
-    width: 100%;
-    height: 150px;
-    background: #be0000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    font-weight: bold;
-    color: #fff; }
-  .modal .content {
-    width: 100%;
-    height: 150px;
-    background: #fff;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 20px;
-    color: #333; }
-    .modal .content .main {
-      font-weight: bold; }
-  .modal button {
-    border: none;
-    width: 100%;
-    height: 50px;
-    background: #666;
-    font-size: 20px;
-    color: #fff;
-    outline: 0;
-    cursor: pointer; }
-  .modal button:hover {
-    background: #606060; }
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .modal-backdrop .modal {
+    width: 300px;
+    height: 350px;
+    background: red; }
+    .modal-backdrop .modal .type {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      font-weight: bold;
+      color: #fff; }
+    .modal-backdrop .modal .content {
+      width: 100%;
+      height: 150px;
+      background: #fff;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px;
+      color: #333; }
+      .modal-backdrop .modal .content .main {
+        font-weight: bold; }
+    .modal-backdrop .modal button {
+      border: none;
+      width: 100%;
+      height: 50px;
+      background: #666;
+      font-size: 20px;
+      color: #fff;
+      outline: 0;
+      cursor: pointer; }
+    .modal-backdrop .modal button:hover {
+      background: #606060; }

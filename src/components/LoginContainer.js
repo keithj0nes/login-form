@@ -10,6 +10,7 @@ class LoginContainer extends React.Component {
     super();
     this.handleFormChange = this.handleFormChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
 
     this.state = {
       whichForm: 'signup',
@@ -24,7 +25,15 @@ class LoginContainer extends React.Component {
           email: 'john@john.com',
           password: '123'
         }
-      ]
+      ],
+      modalShowing: false,
+      modalData: {
+        type: '',
+        icon: '',
+        main: '',
+        sub: '',
+        buttonText: ''
+      }
     }
   }
 
@@ -42,17 +51,34 @@ class LoginContainer extends React.Component {
         if(users[i].email === user.email){
           console.log('user already exists!');
           userExists = true;
+          var modal = {
+            type: 'error',
+            icon: 'x',
+            main: 'User already exists',
+            sub: 'A user already exists with this login. Please enter a new email.'
+          }
+          this.setState({modalShowing: !this.state.modalShowing, modalData: modal})
           break;
         }
       }
 
       if(!userExists){
         users.push(user)
-        this.setState({users})
+        var modal1 = {
+          type: 'success',
+          icon: '+',
+          main: 'Success!',
+          sub: 'You have successfully created your account!',
+        }
+        this.setState({modalShowing: !this.state.modalShowing, modalData: modal1, users})
       }
     } else if(type === 'login'){
 
     }
+  }
+
+  toggleModal(){
+    this.setState({modalShowing: !this.state.modalShowing})
   }
 
 
@@ -63,14 +89,10 @@ class LoginContainer extends React.Component {
 
   render(){
     let barStyle = {};
-    this.state.whichForm === 'signup' ? barStyle = {'marginLeft': '50%'} : barStyle = {'marginLeft': 0}
-
+    this.state.whichForm === 'signup' ? barStyle = {'marginLeft': '50%'} : barStyle = {'marginLeft': 0};
 
     return(
       <div>
-
-
-        <Modal />
         <div className="form-container">
           <div className="welcome-section">
             <img src={logo} alt=""/>
@@ -105,6 +127,15 @@ class LoginContainer extends React.Component {
 
           </div>
         </div>
+
+
+
+
+
+
+
+        <Modal modalShowing={this.state.modalShowing} modalData={this.state.modalData} modalClose={this.toggleModal} />
+
       </div>
     )
   }
